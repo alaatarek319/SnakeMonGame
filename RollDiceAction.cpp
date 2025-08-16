@@ -24,11 +24,13 @@ void RollDiceAction::Execute()
 		// 2- Generate a random number from 1 to 6 
 		srand((int)time(NULL)); 
 		int diceNumber = 1 + rand() % 6; 
-		// 3- Get the "current" player from pGrid
+		// 3- Print the rolled dice number in the status bar
+		pGrid->PrintErrorMessage("You rolled a " + std::to_string(diceNumber) + " , click to continue...");
+		// 4- Get the "current" player from pGrid
 		Player* pCurrent = pGrid->GetCurrentPlayer();
-		// 4- Move the currentPlayer using function Move of class player
+		// 5- Move the currentPlayer using function Move of class player
 		pCurrent->Move(pGrid, diceNumber);
-		// 5- Advance the current player number of pGrid
+		// 6- Advance the current player number of pGrid
 		pGrid->AdvanceCurrentPlayer();
 
 	}
