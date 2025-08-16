@@ -1,13 +1,11 @@
 #include "Player.h"
-
 #include "GameObject.h"
-
+bool Player::stop = false; // Initialize the static stop flag to false
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), wallet(100), playerNum((playerNum<0|| playerNum>= MaxPlayerCount) ? -1: playerNum)
 {
 	this->pCell = pCell;
 	this->turnCount = 0;
 	justRolledDiceNum = 0;
-	stop = false;
 	// Make all the needed initialization or validations
 }
 
@@ -126,7 +124,7 @@ void Player::Move(Grid * pGrid, int diceNumber)
 		//    Using the appropriate function of CellPosition class to update "pos"
 		CellPosition cNew = pCell->GetCellPosition();
 
-		if (cNew.GetCellNum() + diceNumber > 99)
+		if (cNew.GetCellNum() + diceNumber >= 99)
 		{
 			cNew = CellPosition::GetCellPositionFromNum(99);
 			pGrid->UpdatePlayerCell(this, cNew);
