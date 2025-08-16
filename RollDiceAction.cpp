@@ -44,3 +44,4 @@ RollDiceAction::~RollDiceAction()
 {
 
 }
+
