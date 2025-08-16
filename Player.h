@@ -58,3 +58,4 @@ public:
 	void ResetPlayer(Grid* pGrid);                     //Resets the players data when playing a new game 
 };
 
+
